@@ -1,0 +1,361 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/css3";
+
+/*color initializations*/
+
+$col-bg:#3f406c;
+$col-content:#5a5f89;	//subscribe-bg
+$col-header:#52557e;	
+$col-checkbox:#a88cd9;	//popcorn-bg, button
+$col-text-primary:#d4d7dc;
+$col-text-secondary:#aaafd4;
+$col-laptop:#ffc718;
+$col-camera:#ef738b;
+$col-bulb:#2bc4cc;
+$col-stats:#5ca8f3;
+$font:Tohoma,helvetica,sans-serif;
+
+/*general*/
+body{
+	background:$col-bg;
+	font-family: $font;
+}
+
+#{headings(3)}{
+  color: #fff;
+}
+
+h1{
+	font-size: 15px;	
+}
+
+h2{
+	width: 170px;
+	margin-top: 19px;
+	font-weight: 900;
+	-webkit-font-smoothing: antialiased;
+	font-size:34px;
+}
+
+h3{
+	font-size:20px;
+	font-weight:bold;
+}
+
+p{
+	color:$col-text-primary;
+}
+
+a{
+	color:$col-text-secondary;
+	text-decoration:none;
+	transition:1s color;
+}
+a:hover{
+	color:adjust-lightness($col-text-secondary, 30);
+}
+
+button{
+	border: none;
+	margin-top: 40px;
+	padding: 10px;
+	font-size: 11px;
+	font-weight: 900;
+	color: #fff;
+	background-color: $col-checkbox;
+	font-family: $font;
+}
+button:hover{
+	color:$col-text-primary;
+	background-color:shade($col-checkbox, 10);
+}
+
+/*Background Images*/
+.group, .ddc, .stats, .camera, .popcorn, 
+.man, .laptop, .bulb, .icon, .icon-small, 
+.clock, .avatar, .tick
+{ display: inline-block; background: url('../images/main.png') no-repeat; overflow: hidden; text-indent: -9999px; text-align: left; }
+ 
+.group { background-position: -4px -0px; width: 245px; height: 164px; }
+.ddc { background-position: -4px -168px; width: 192px; height: 87px; margin-top: 32px;margin-left: 28px;}
+.stats { background-position: -4px -259px; width: 191px; height: 100px;margin-left: 152px;margin-top: 38px; }
+.camera { background-position: -4px -363px; width: 169px; height: 147px; margin-top: 18px;margin-left: 77px;}
+.popcorn { background-position: -4px -514px; width: 161px; height: 98px;margin-top: 17px;margin-left: 168px;}
+.man { background-position: -4px -616px; width: 159px; height: 164px; margin-left: 46px;}
+.laptop { background-position: -4px -784px; width: 142px; height: 118px; margin-top:47px;}
+.bulb { background-position: -4px -906px; width: 141px; height: 133px; margin-top: 22px;margin-left: 54px;}
+.icon { background-position: -200px -168px; width: 34px; height: 12px; }
+.icon-small { background-position: -200px -184px; width: 25px; height: 7px; }
+.clock { background-position: -229px -184px; width: 12px; height: 12px; }
+.avatar { background-position: -200px -195px; width: 11px; height: 11px; }
+.tick { background-position: -238px -168px; width: 6px; height: 4px; }
+
+.ddc-bg{
+	background:#fff;
+}
+.popcorn-bg{
+	background:$col-checkbox;
+}
+.laptop-bg{
+	background:$col-laptop;
+}
+.camera-bg{
+	background:$col-camera;
+}
+.bulb-bg{
+	background:$col-bulb;
+}
+.man-bg{
+	background:#000;
+}
+.stats-bg{
+	background:$col-stats;
+}
+
+.ddc-col{
+	background:#fff;
+}
+.popcorn-col{
+	background:$col-checkbox;
+}
+.laptop-col{
+	background:$col-laptop;
+}
+.camera-col{
+	background:$col-camera;
+}
+.bulb-col{
+	background:$col-bulb;
+}
+.man-col{
+	background:#000;
+}
+.stats-col{
+	background:#5ca8f3;
+}
+
+
+.clear{
+	clear:both;
+}
+
+/*header*/
+.header{
+	
+	background:$col-header;
+	height:40px;
+	h1{
+		margin:auto 0;
+		padding: 10px 20px;
+		color:#fff;
+		float:left
+
+	}
+	span{
+	margin-right:10px;
+	}
+	p{		
+		background: $col-content;
+		font-size: 10px;
+		float: right;
+		padding: 15px 0px 15px 30px;
+		padding-right:20%
+	}
+	.check{
+		float:right;
+		width: 40px;
+		position: relative;
+		label {
+			cursor: pointer;
+			position: absolute;
+			width: 40px;
+			height: 40px;
+			top: 0;
+		  	left: 0;
+			background-color:$col-checkbox;
+		}
+
+		label:after {
+			opacity: 0.2;
+			content: '';
+			position: absolute;
+			width: 9px;
+			height: 5px;
+			background: transparent;
+			top: 15px;
+			left: 15px;
+			border: 3px solid #333;
+			border-top: none;
+			border-right: none;
+			@include rotate(-45deg);
+		}
+
+		label:hover:after,input[type=checkbox]:checked + label:hover:after {
+			opacity: 0.5;
+		}
+
+		input[type=checkbox]:checked + label:after {
+			border-color:#fff;
+			opacity:1;
+		}
+		input[type=checkbox]{
+		padding:13px;
+		background-color:$col-checkbox;
+		
+		}
+	}
+}
+/*main-content*/
+.container{
+	margin: 50px auto;
+	max-width: 1000px;
+}
+
+/*blocks*/
+.row{
+	height:420px;
+}
+
+%col{
+	background:$col-content; 
+	height:100%;
+	margin:2px;
+	float:left;
+}
+.one{
+	@extend %col;
+	width:246px;
+}
+.two{
+	@extend %col;
+	width:496px;
+}
+/*image inside each block*/
+.image{
+	height:165px;
+	p{
+	text-align: center;
+	padding-top: 30px;
+	font-size: 20px;
+	letter-spacing: 1px;
+	color: white;
+	}
+}
+/*content inside each block*/
+.content{
+	position:relative;
+	height:210px;
+	padding:20px;
+	p,a{
+		font-size:11px;
+		line-height:23px
+	}
+	&.no-image{
+		padding: 60px 30px;
+	}
+	.heading{
+	margin:10px 0;
+	}
+	.footer{
+	position:absolute;
+	bottom:20px;
+	}
+	.footer a,.footer span{
+	float:left;
+	}
+	.footer span{
+	margin-top:6px;
+	}
+	.footer span+a{
+	margin-right:18px;
+	}
+	.footer span~a{
+	margin-left:4px;
+	}
+}
+.footer p,.category{
+	color:$col-text-secondary;
+}
+%category{
+	content:"o";
+	font-weight: 900;
+	font-size: 11px;
+	font-family: tahoma;
+	margin-right: 7px;
+}
+
+.popcorn-bullet:before{
+	@extend %category;
+	color:$col-checkbox;
+}
+.laptop-bullet:before{
+	@extend %category;
+	color:$col-laptop;
+}
+
+.ddc-bullet:before{
+	@extend %category;
+	color:#fff;
+}
+
+.camera-bullet:before{
+	@extend %category;
+	color:$col-camera;
+}
+
+.bulb-bullet:before{
+	@extend %category;
+	color:$col-bulb;
+}
+
+.man-bullet:before,.group-bullet:before{
+	@extend %category;
+	color:#ccc;
+}
+
+.stats-bullet:before{
+	@extend %category;
+	color:$col-stats;
+}
+
+@media(max-width:1017px){
+	.container{
+	width:767px;
+	margin:40px auto;
+	}
+}
+@media (max-width:767px){
+	.container{
+	width:517px;
+	margin:0 auto;
+	}
+	.row{
+	height:530px;
+	}
+	.two{
+	width:246px
+	}
+	.popcorn{
+	margin-left:40px;
+	}
+	.stats{
+	margin-left:23px;
+	}
+	.content{
+	height:330px;
+	}
+}
+@media(max-width:517px){
+	.container{
+	width:267px;
+	margin:40px auto;
+	}
+	.header h1{float:none;}
+	.header p{float:none;}
+	
+}
